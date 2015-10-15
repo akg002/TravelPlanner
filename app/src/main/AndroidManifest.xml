@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="in.silive.travelplanner" >
+
+    <uses-sdk android:minSdkVersion="11" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".searchTrain.SearchTrains"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".bookTicket.BookTicket"
+            android:label="Travel Planner"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:label="@string/title_activity_splash"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Central"
+            android:label="@string/title_activity_central"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".travelInfo.TravelInfo" >
+        </activity>
+        <activity
+            android:name=".Checklist"
+            android:label="Travel Planner"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Nearby_Places.Search_Nearby_Places"
+            android:label="Travel Planner"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".Hotels.Hotels_Search" >
+        </activity>
+        <activity android:name=".OldJourneys.OldJourneys" >
+        </activity>
+        <activity android:name=".image_test" >
+        </activity>
+    </application>
+
+</manifest>
