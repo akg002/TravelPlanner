@@ -59,6 +59,8 @@
         </activity>
         <activity android:name=".image_test" >
         </activity>
+        <activity android:name=".Detailed_view" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,11 +1,13 @@
 package in.silive.travelplanner.OldJourneys;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -13,7 +15,7 @@ import android.widget.Toast;
 import in.silive.travelplanner.DataBaseHelper;
 import in.silive.travelplanner.R;
 
-public class OldJourneys extends AppCompatActivity implements View.OnClickListener {
+public class OldJourneys extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 ListView journeyList;
     AdapterForShortJourney listAdapter;
     DataBaseHelper dataBaseHelper;
@@ -41,6 +43,12 @@ ListView journeyList;
                 break;
 
         }
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent=new Intent(this,in.silive.travelplanner.Detailed_view.class);
 
     }
 }
