@@ -48,7 +48,10 @@ ListView journeyList;
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent=new Intent(this,in.silive.travelplanner.Detailed_view.class);
+        Intent intent =new Intent(this,in.silive.travelplanner.Detailed_view.class);
+        intent.putExtra("position",""+position);
+        startActivity(intent);
+
 
     }
 }
