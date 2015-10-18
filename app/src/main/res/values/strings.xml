@@ -6,4 +6,5 @@
     <string name="title_activity_book_ticket">BookTicket</string>
     <string name="title_activity_splash">Travel Planner</string>
     <string name="title_activity_central">Travel Planner</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

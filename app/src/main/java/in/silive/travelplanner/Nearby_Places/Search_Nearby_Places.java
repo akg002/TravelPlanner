@@ -40,17 +40,20 @@ public class Search_Nearby_Places extends AppCompatActivity implements View.OnCl
     ArrayList<String> local_attractions = new ArrayList<>();
     ListView local_display;
     Nearby_places_Custom_Adapter nearbyplacesCustom_adapter_for_places;
-    Bundle info,checkList;
+    Bundle info, checkList;
     String dest_city;
+    Button view_map;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((Button)findViewById(R.id.buttn_next)).setOnClickListener(this);
-        ((Button)findViewById(R.id.buttn_back)).setOnClickListener(this);
+        ((Button) findViewById(R.id.buttn_next)).setOnClickListener(this);
+        ((Button) findViewById(R.id.buttn_back)).setOnClickListener(this);
         local_display = (ListView) findViewById(R.id.local_attractions_disp);
+        view_map = (Button) findViewById(R.id.view_map);
+        view_map.setOnClickListener(this);
 
         try {
             Intent intent = getIntent();
@@ -59,8 +62,8 @@ public class Search_Nearby_Places extends AppCompatActivity implements View.OnCl
             dest_city = info.getString("dest_station");
             String[] array = dest_city.split(" ");
             dest_city = array[0];
-            for(int i=1;i<(array.length -1);++i){
-                dest_city +=("%20"+array[i]);
+            for (int i = 1; i < (array.length - 1); ++i) {
+                dest_city += ("%20" + array[i]);
             }
         } catch (Exception e) {
             Log.d("Search_Nearby_Places", "Error in getting intent");
@@ -78,10 +81,15 @@ public class Search_Nearby_Places extends AppCompatActivity implements View.OnCl
                 info.putStringArray("Fav", nearbyplacesCustom_adapter_for_places.get_fav_places());
                 checkList.putBoolean("Fav", true);
                 intent.putExtra("info", info);
-                intent.putExtra("checkList",checkList);
+                intent.putExtra("checkList", checkList);
                 startActivity(intent);
                 break;
-            case R.id.buttn_back:finish();
+            case R.id.buttn_back:
+                finish();
+                break;
+            case R.id.view_map:
+                Intent i = new Intent(this, MapsActivity.class);
+                startActivity(i);
                 break;
         }
 
@@ -119,7 +127,7 @@ public class Search_Nearby_Places extends AppCompatActivity implements View.OnCl
             try {
                 url = new URL("https://maps.googleapis.com/maps/api/place/textsearch/json?query=Tourist+spots+in+" + dest_city + "&key=" + Api_key);
                 connection = (HttpURLConnection) url.openConnection();
-                Log.d("Search_Nearby",""+url);
+                Log.d("Search_Nearby", "" + url);
                 Log.d("display", "connection");
                 connection.setRequestMethod("GET");
                 connection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
